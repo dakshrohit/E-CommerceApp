@@ -1,0 +1,67 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+# Node modules
+node_modules/
+
+# Build output
+dist/
+.vite/
+
+# Local environment variables
+.env
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE-specific
+.vscode/
+.idea/
+
+# Optional: Mac/Linux file storage
+*.swp
+*.swo
+
+# Local history for JetBrains IDEs
+.localhistory/
+
+# Optional: if you're using Tailwind or PostCSS cache
+.postcss-cache/
+
+# Coverage reports
+coverage/
+
+# Optional: if you're using eslint cache
+.eslintcache
+
+# Optional: if you're using TypeScript in other parts
+*.tsbuildinfo
