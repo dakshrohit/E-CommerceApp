@@ -1,0 +1,142 @@
+{
+  "products": [
+  {
+    "id": "1",
+    "title": "Minimalist Backpack",
+    "description": "Sleek and functional design.",
+    "action": "Buy Now",
+    "content": "Spacious compartments, water-resistant material.",
+    "price": 45.00,
+    "image": "https://picsum.photos/seed/backpack/300/200"
+  },
+  {
+    "id": "2",
+    "title": "Smartwatch",
+    "description": "Stay connected on the go.",
+    "action": "Add to Cart",
+    "content": "Tracks steps, heart rate, sleep cycles.",
+    "price": 120.00,
+    "image": "https://picsum.photos/seed/smartwatch/300/200"
+  },
+  {
+    "id": "3",
+    "title": "Desk Lamp",
+    "description": "Elegant and adjustable lighting.",
+    "action": "Shop Now",
+    "content": "Touch controls, warm/cool brightness levels.",
+    "price": 25.99,
+    "image": "https://picsum.photos/seed/lamp/300/200"
+  },
+  {
+    "id": "4",
+    "title": "Eco Water Bottle",
+    "description": "Sustainable hydration.",
+    "action": "Add to Cart",
+    "content": "BPA-free, keeps drinks cold for 24 hours.",
+    "price": 18.50,
+    "image": "https://picsum.photos/seed/waterbottle/300/200"
+  },
+  {
+    "id": "5",
+    "title": "Bluetooth Speaker",
+    "description": "Rich sound in a compact size.",
+    "action": "Buy Now",
+    "content": "12-hour battery life, splash-proof design.",
+    "price": 32.75,
+    "image": "https://picsum.photos/seed/speaker/300/200"
+  },
+  {
+    "id": "6",
+    "title": "Running Shoes",
+    "description": "Built for performance.",
+    "action": "Shop Now",
+    "content": "Breathable mesh and responsive cushioning.",
+    "price": 69.99,
+    "image": "https://picsum.photos/seed/shoes/300/200"
+  },
+  {
+    "id": "7",
+    "title": "Laptop Stand",
+    "description": "Ergonomic and foldable.",
+    "action": "Add to Cart",
+    "content": "Supports all laptop sizes, improves posture.",
+    "price": 27.49,
+    "image": "https://picsum.photos/seed/stand/300/200"
+  },
+  {
+    "id": "8",
+    "title": "Wireless Earbuds",
+    "description": "Noise-cancelling audio experience.",
+    "action": "Buy Now",
+    "content": "Long-lasting battery and seamless pairing.",
+    "price": 59.95,
+    "image": "https://picsum.photos/seed/earbuds/300/200"
+  },
+  {
+    "id": "9",
+    "title": "Leather Wallet",
+    "description": "Sleek and durable.",
+    "action": "Add to Cart",
+    "content": "Holds cards and cash with RFID protection.",
+    "price": 34.00,
+    "image": "https://picsum.photos/seed/wallet/300/200"
+  },
+  {
+    "id": "10",
+    "title": "Coffee Mug",
+    "description": "Classic ceramic design.",
+    "action": "Shop Now",
+    "content": "Keeps drinks hot, dishwasher safe.",
+    "price": 12.99,
+    "image": "https://picsum.photos/seed/mug/300/200"
+  },
+  {
+    "id": "11",
+    "title": "Portable Charger",
+    "description": "Power on the go.",
+    "action": "Buy Now",
+    "content": "10,000mAh capacity, fast charging support.",
+    "price": 22.49,
+    "image": "https://picsum.photos/seed/charger/300/200"
+  },
+  {
+    "id": "12",
+    "title": "Travel Organizer",
+    "description": "Keep your essentials tidy.",
+    "action": "Add to Cart",
+    "content": "Multiple compartments, durable zippers.",
+    "price": 15.99,
+    "image": "https://picsum.photos/seed/organizer/300/200"
+  },
+  {
+    "id": "13",
+    "title": "Desk Mat",
+    "description": "Elegant workspace upgrade.",
+    "action": "Shop Now",
+    "content": "Smooth surface, anti-slip base.",
+    "price": 19.99,
+    "image": "https://picsum.photos/seed/deskmat/300/200"
+  },
+  {
+    "id": "14",
+    "title": "Wireless Keyboard",
+    "description": "Slim and quiet typing.",
+    "action": "Add to Cart",
+    "content": "Bluetooth connection, long battery life.",
+    "price": 39.99,
+    "image": "https://picsum.photos/seed/keyboard/300/200"
+  },
+  {
+    "id": "15",
+    "title": "Scented Candles",
+    "description": "Relaxing aromatherapy.",
+    "action": "Buy Now",
+    "content": "Lavender, vanilla, and sandalwood scents.",
+    "price": 24.00,
+    "image": "https://picsum.photos/seed/candles/300/200"
+  }
+]
+
+
+
+}

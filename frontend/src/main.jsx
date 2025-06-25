@@ -2,13 +2,13 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
-import {Theme,ThemePanel} from "@radix-ui/themes"
+import { CartProvider } from './context/CartContext.jsx';
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-  <Theme appearance='dark' >
+    <CartProvider>
     <App />
-    <ThemePanel />
-  </Theme>
+    </CartProvider>
   </StrictMode>,
 )
