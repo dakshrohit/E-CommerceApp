@@ -1,14 +1,15 @@
 import React, { useEffect, useState ,useContext} from 'react'
 import { useParams } from 'react-router-dom'
-import { CartContext } from '../../context/CartContext.jsx'
+import { useCart } from '../../context/CartContext.jsx'
 import { Button } from '../../components/ui/Button.jsx'
+import toast from 'react-hot-toast'
 const ProductDetails = () => {
 
 
 
   const {id}=useParams()
   const [product,setProduct]=useState(null);
-  const { dispatch } = useContext(CartContext);
+  const { dispatch } = useCart();
 
   useEffect(()=>{
     fetch(`http://localhost:4000/products/${id}`)
@@ -29,6 +30,9 @@ const ProductDetails = () => {
       type:"ADD_TO_CART",
       payload: product
     });
+    // console.log("Product added to cart:", product);
+    // alert(`${product.title} has been added to your cart!`)
+    toast.success(`${product.title} has been added to your cart!`);
   };
 
   return (
@@ -53,7 +57,7 @@ const ProductDetails = () => {
   >
     Add to Cart
   </Button>
-  <Button className="mt-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded">
+  <Button className="mt-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded ">
                Buy Now
               </Button>
   </div>
