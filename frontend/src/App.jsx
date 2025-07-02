@@ -24,17 +24,17 @@ const App = () => {
         <Route
           path="/cart"
           element={
-            <ProtectedRoute>
+            // <ProtectedRoute>
               <Cart />
-            </ProtectedRoute>
+            // </ProtectedRoute>
           }
         />
         <Route
           path="/checkout"
           element={
-            <ProtectedRoute>
+            // <ProtectedRoute>
               <Checkout />
-            </ProtectedRoute>
+            /* </ProtectedRoute> */
           }
         />
         <Route
