@@ -8,13 +8,15 @@ const Profile = () => {
   useEffect(()=>{
     const fetchProfile=async()=>{
       try{
-        const res=await fetch("http://localhost:4000/users/profile",{
+        const base_url=import.meta.env.VITE_BASE_URL || "http://localhost:4000";
+        const res=await fetch(`${base_url}/api/user/profile`
+          ,{
           credentials:"include" // to ensure cookies are sent with the request for authentication
 
         });
         const data=await res.json();
         if(res.ok){
-          setUser(data.user);
+          setUser(data.user); 
         } else{
           toast.error(`Error fetching profile:${data.message} `)
         }

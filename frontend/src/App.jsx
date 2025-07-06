@@ -5,13 +5,16 @@ import Products from "./pages/userpages/Products.jsx";
 import Cart from "./pages/userpages/Cart.jsx";
 import Checkout from "./pages/userpages/Checkout.jsx";
 import AuthPage from "./pages/userpages/AuthPage.jsx";
-import Register from "./pages/userpages/Register.jsx";
+// import Register from "./pages/userpages/Register.jsx";
 import Profile from "./pages/userpages/Profile.jsx";
 import Orders from "./pages/userpages/Orders.jsx";
 import ProductDetails from "./pages/userpages/ProductDetails.jsx";
 import Navbar from "./components/Navbar.jsx";
-import SuccessPage from "./pages/userpages/SuccessPage.jsx";
+import SuccessPage from "./pages/userpages/PaymentSuccess.jsx";
+import AddProduct from "./pages/sellerpages/AddProduct.jsx";
+import EditProduct from "./pages/sellerpages/EditProduct.jsx";
 import { Toaster } from "react-hot-toast";
+import SellerDashboard from "./pages/sellerpages/Dashboard.jsx";
 import { ProtectedRoute } from "./components/ProtectedRoute.jsx";
 const App = () => {
   return (
@@ -24,30 +27,37 @@ const App = () => {
         <Route
           path="/cart"
           element={
-            // <ProtectedRoute>
+            <ProtectedRoute>
               <Cart />
-            // </ProtectedRoute>
+             </ProtectedRoute>
           }
         />
+<Route path="/seller/add-product" element={<AddProduct />} />
+<Route path="/seller/edit-product/:id" element={<EditProduct />} />
+
+        <Route
+          path="/seller/dashboard"
+          element={<SellerDashboard/>} />
+          
         <Route
           path="/checkout"
           element={
-            // <ProtectedRoute>
+            <ProtectedRoute>
               <Checkout />
-            /* </ProtectedRoute> */
+            </ProtectedRoute> 
           }
         />
         <Route
           path="/success"
           element={
-            <ProtectedRoute>
+          //  <ProtectedRoute>
               <SuccessPage />
-            </ProtectedRoute>
+           // </ProtectedRoute>
           }
         />
 
         <Route path="/auth" element={<AuthPage />} />
-        <Route path="/register" element={<Register />} />
+        {/* <Route path="/register" element={<Register />} /> */}
         <Route
           path="/profile"
           element={

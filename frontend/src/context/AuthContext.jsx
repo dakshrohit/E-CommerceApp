@@ -6,7 +6,8 @@ const AuthContext = createContext();
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await fetch("http://localhost:4000/api/auth/me", {
+        const base_url=import.meta.env.VITE_BASE_URL || "http://localhost:4000";
+        const res = await fetch(`${base_url}/api/auth/me`, {
           method: "GET",
 
           credentials: "include",
@@ -25,8 +26,24 @@ const AuthContext = createContext();
     };
     fetchUser();
   }, []);
+
+const logout=async()=>{
+  try{
+    await fetch(`${base_url}/api/auth/logout`,{
+      method:"POST",
+      credentials:"include",
+    });
+    setAuthUser(null);
+
+
+  }
+  catch(err){
+    console.error("Error logging out:", err);
+  }
+}
+ 
   return (
-    <AuthContext.Provider value={{ authUser, loading, setAuthUser }}>
+    <AuthContext.Provider value={{ authUser, loading, setAuthUser ,logout}}>
       {children}
     </AuthContext.Provider>
   );
@@ -39,5 +56,6 @@ const useAuth = () => {
   }
   return context;
 };
+
 
 export { useAuth,AuthProvider };

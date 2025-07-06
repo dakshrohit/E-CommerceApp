@@ -14,10 +14,11 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const Products = () => {
-  const { dispatch } = useCart();
+  const {  addToCart } = useCart();
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:4000/products")
+    const base_url=import.meta.env.VITE_BASE_URL || "http://localhost:4000";
+    fetch(`${base_url}/products`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -27,17 +28,27 @@ const Products = () => {
 
   const handleAddToCart = (product) => {
     // console.log("Product added to cart:", product);
-    toast.success(`${product.title} has been added to your cart!`);
-    dispatch({
-      type: "ADD_TO_CART",
-      payload: product,
-    });
+    addToCart({
+      productId: product._id,
+      name: product.title,
+      price: product.price,
+      image: product.image,
+      quantity: 1, // Default quantity to 1
+    })
+        toast.success(`${product.title} has been added to your cart!`);
+        
+
+
+    // dispatch({
+    //   type: "ADD_TO_CART",
+    //   payload: product,
+    // });
   };
 
   const navigate = useNavigate();
   const handlebuynow = (product) => {
     toast.success(`proceding to checkout for ${product.title}`);
-    navigate(`/checkout?buynow=${product.id}`);
+    navigate(`/checkout?buynow=${product._id}`);
   };
   return (
     <main>

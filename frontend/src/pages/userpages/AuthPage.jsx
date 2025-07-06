@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import { useAuth } from "../../context/AuthContext.jsx";
 import { toast } from "react-hot-toast";
+import { useCart } from "@/context/CartContext.jsx";
+import { useNavigate } from "react-router-dom";
+
 
 const AuthPage = () => {
+  const navigate = useNavigate();
+  const {syncCartAfterLogin} = useCart();
   const { setAuthUser } = useAuth();
   const [loginData, setLoginData] = useState({
     email: "",
@@ -37,6 +42,9 @@ const AuthPage = () => {
         // console.log(data.message || "Login failed");
         toast.error(data.message || "Login failed");
       }
+      await syncCartAfterLogin(); // Sync cart after login
+      navigate("/") // Redirect to home page after successful login
+      
     } catch (err) {
       // console.error("Login error", err);
       toast.error("Something went wrong!");
@@ -62,6 +70,8 @@ const AuthPage = () => {
         // console.log(data.message || "Signup failed");
         toast.error(data.message || "Signup failed");
       }
+       await syncCartAfterLogin(); // Sync cart after login
+      navigate("/") // Redirect to home page after successful login
     } catch (err) {
       console.error(err);
       toast.error("Something went wrong!");

@@ -5,7 +5,8 @@ import { Navigate, useLocation } from "react-router-dom";
 
 const Checkout = () => {
   const location = useLocation();
-  const buyNowId = new URLSearchParams(location.search).get("buynow");
+  const navigate = Navigate();
+  const buyNowId = new URLSearchParams(location.search).get("buynow"); 
   const [product, setproduct] = useState(null);
   useEffect(() => {
     if (buyNowId) {
@@ -30,6 +31,9 @@ const Checkout = () => {
     paymentMethod: "cod",
   });
   const handleplaceorder = async () => {
+
+
+
     //basic validation
     if (
       !formData.email ||
@@ -43,7 +47,16 @@ const Checkout = () => {
       alert("Please fill all the fields");
       return;
     }
-    const orderPayload = {
+    const totalamounttobepaid=buyNowId && product ? product.price :totalAmount;
+    const productsToOrder=buyNowId && product ? [
+      {
+        productId:product._id,
+        quantity:1
+      }
+    ] : cartItems;
+
+    if(formData.paymentMethod==="cash on delivery"){
+      const orderPayload = {
       // This is the payload that will be sent to the server when the user places an order
       //sending data in a format, later we will extract this data and save in the db acc to the schema
       products:
@@ -71,13 +84,51 @@ const Checkout = () => {
       });
       const data = await res.json();
       if (res.ok) {
-        Navigate("/success");
+        navigate("/success");
       } else {
         alert(data.message || "Failed to place order");
       }
     } catch (err) {
       console.error("Error placing order:", err);
     }
+
+
+    }else{
+      // If the payment method is not cash on delivery, we will create a payment link
+      try{
+        const base_url = import.meta.env.VITE_BASE_URL || "http://localhost:4000";
+        const res=await fetch(`${base_url}/api/payment/create`,{
+          method:"POST",
+          headers:{
+            "Content-Type":"application/json"
+          
+          },
+          credentials:"include",
+          body:JSON.stringify({
+            totalAmount: totalamounttobepaid,
+            fullName:formData.fullName,
+            email:formData.email,
+            phone:formData.phone,
+            products:productsToOrder,
+          })
+        });
+        const data = await res.json();
+        if(res.ok){
+          // If the payment link is created successfully, redirect to the payment link
+          const paymentLink = data.data.paymentLink;
+          window.location.href= paymentLink; // Redirect to the payment link
+        } else{
+          alert(data.message || "Failed to create payment link")
+        }
+
+      } catch(err){
+        alert("Something went wrong while creating payment link");
+        console.error("Error creating payment link:", err);
+
+      }
+
+    }
+    
   };
 
   return (

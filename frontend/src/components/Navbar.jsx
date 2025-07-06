@@ -6,9 +6,15 @@ import {
 import { Link, useLocation } from "react-router-dom";
 import ThemeProvider from "./Theme-provider";
 import ModeToggle from "./ModeToggle";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
+  const navigate = useNavigate();
   const location = useLocation();
+  const handleseller=()=>{
+    navigate("/seller-auth")
+
+  }
 
   const navLinkClass = (path) =>
   ` font-medium transition px-3 py-2 rounded-md bg-transparent ${
@@ -51,6 +57,11 @@ export default function Navbar() {
         <MenubarMenu>
           <MenubarTrigger asChild>
             <Link to="/profile" className={navLinkClass("/profile")}> <b>Profile</b></Link>
+          </MenubarTrigger>
+        </MenubarMenu>
+        <MenubarMenu>
+          <MenubarTrigger asChild>
+            <Link  onClick={handleseller}> <b>Seller?</b></Link>
           </MenubarTrigger>
         </MenubarMenu>
       </Menubar>
